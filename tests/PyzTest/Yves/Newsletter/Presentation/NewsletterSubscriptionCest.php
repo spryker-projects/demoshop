@@ -36,7 +36,7 @@ class NewsletterSubscriptionCest
         $i->expect('Success message is displayed.');
 
         $i->amOnPage(Homepage::URL);
-throw new \Exception('uzvuzvuzvlv');
+
         $customerTransfer = $this->buildCustomerTransfer();
 
         $i->fillField(NewsletterSubscriptionHomePage::FORM_SELECTOR, $customerTransfer->getEmail());

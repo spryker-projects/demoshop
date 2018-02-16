@@ -92,7 +92,7 @@ script:
 #  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Presentation ; fi
 #  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g NewsletterSubscriptionCest ; fi
-  - cat tests/PyzTest/Yves/Newsletter/_output/PyzTest.Yves.Newsletter.Presentation.NewsletterSubscriptionCest.iCanSubscribeWithAnUnsubscribedEmail.fail.html
+  - cat tests/PyzTest/Yves/Newsletter/_output/PyzTest.Yves.Newsletter.Presentation.NewsletterSubscriptionCest.iCanNotSubscribeWithAnAlreadySubscribedEmail.fail.html
 
 #  - if [[ $PHPSTAN != 1 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console propel:schema:validate ; fi
 #  - if [[ $PHPSTAN != 1 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console transfer:validate ; fi
