@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3230eff4d6d167a495b89589e2da63d5",
+    "content-hash": "cd93f5e608441026de20786cbf2ef0c8",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -3468,7 +3468,7 @@
             "require": {
                 "php": ">=7.1",
                 "spryker/category": "^4.3.0",
-                "spryker/event-behavior": "^0.1.2",
+                "spryker/event-behavior": "^1.0.0",
                 "spryker/kernel": "^3.16.0",
                 "spryker/locale": "^3.1.0",
                 "spryker/propel-orm": "^1.5.0",
@@ -4345,7 +4345,7 @@
             "require": {
                 "php": ">=7.1",
                 "spryker/cms": "^6.4.0",
-                "spryker/event-behavior": "^0.1.2",
+                "spryker/event-behavior": "^1.0.0",
                 "spryker/kernel": "^3.16.0",
                 "spryker/locale": "^3.1.0",
                 "spryker/synchronization": "^0.2.0",
@@ -6339,7 +6339,7 @@
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
-                "spryker/event-behavior": "^0.1.0",
+                "spryker/event-behavior": "^1.0.0",
                 "spryker/testify": "*"
             },
             "suggest": {
@@ -6788,23 +6788,23 @@
         },
         {
             "name": "spryker/event-behavior",
-            "version": "0.1.4",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "07ff85f9171772e2ad6ef44bce864e125ff1278a"
+                "reference": "9de73f7ebce77354f86b26ec1e2c5530b7120d7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/07ff85f9171772e2ad6ef44bce864e125ff1278a",
-                "reference": "07ff85f9171772e2ad6ef44bce864e125ff1278a",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/9de73f7ebce77354f86b26ec1e2c5530b7120d7f",
+                "reference": "9de73f7ebce77354f86b26ec1e2c5530b7120d7f",
                 "shasum": ""
             },
             "require": {
                 "spryker/error-handler": "^2.1.2",
-                "spryker/event": "^2.0.0",
-                "spryker/kernel": "^3.12.0",
-                "spryker/propel-orm": "^1.0.0",
+                "spryker/event": "^2.1.0",
+                "spryker/kernel": "^3.20.0",
+                "spryker/propel-orm": "^1.6.0",
                 "spryker/symfony": "^3.1.0",
                 "spryker/util-encoding": "^2.0.0",
                 "spryker/zend": "^2.1.0"
@@ -6836,11 +6836,14 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "src/"
+            ],
             "license": [
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-02-08T12:16:03+00:00"
+            "time": "2018-05-30T09:20:04+00:00"
         },
         {
             "name": "spryker/event-journal",
@@ -10399,7 +10402,7 @@
             },
             "require": {
                 "php": ">=7.1",
-                "spryker/event-behavior": "^0.1.2",
+                "spryker/event-behavior": "^1.0.0",
                 "spryker/kernel": "^3.16.0",
                 "spryker/product": "^5.5.0 || ^6.0.0",
                 "spryker/product-label": "^2.4.0",
@@ -10540,6 +10543,145 @@
             ],
             "description": "ProductManagementExtension module",
             "time": "2018-03-30T06:20:42+00:00"
+        },
+        {
+            "name": "spryker/product-measurement-unit",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/product-measurement-unit.git",
+                "reference": "021e8512d447cb3a646dae369e90c4b9a53102f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/product-measurement-unit/zipball/021e8512d447cb3a646dae369e90c4b9a53102f1",
+                "reference": "021e8512d447cb3a646dae369e90c4b9a53102f1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/cart-extension": "^1.2.0",
+                "spryker/event": "^2.0.0",
+                "spryker/kernel": "^3.17.0",
+                "spryker/persistent-cart-extension": "^1.0.0",
+                "spryker/product": "^6.0.0",
+                "spryker/propel-orm": "^1.6.0",
+                "spryker/sales-extension": "^1.1.0",
+                "spryker/store": "^1.0.0",
+                "spryker/util-measurement-unit-conversion": "^0.1.0 || ^1.0.0"
+            },
+            "require-dev": {
+                "spryker/cart": "*",
+                "spryker/code-sniffer": "*",
+                "spryker/installer": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/cart": "If you want to use cart plugins: ^4.0.0",
+                "spryker/installer": "If you want to use ProductMeasurementUnitInstallerPlugin. Minimum required version: ^4.0.0."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/",
+                    "SprykerTest\\Shared\\ProductMeasurementUnit\\Helper\\": "tests/SprykerTest/Shared/ProductMeasurementUnit/_support/Helper/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductMeasurementUnit module",
+            "time": "2018-06-01T11:51:47+00:00"
+        },
+        {
+            "name": "spryker/product-measurement-unit-gui",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/product-measurement-unit-gui.git",
+                "reference": "c7ba32c91353be1d882178f7cff587bf6d081afd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/product-measurement-unit-gui/zipball/c7ba32c91353be1d882178f7cff587bf6d081afd",
+                "reference": "c7ba32c91353be1d882178f7cff587bf6d081afd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductMeasurementUnitGui module",
+            "time": "2018-04-04T22:07:23+00:00"
+        },
+        {
+            "name": "spryker/product-measurement-unit-storage",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/product-measurement-unit-storage.git",
+                "reference": "d2c7f1906d03d1a0600df3fdd8104ebc9b4c6c49"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/product-measurement-unit-storage/zipball/d2c7f1906d03d1a0600df3fdd8104ebc9b4c6c49",
+                "reference": "d2c7f1906d03d1a0600df3fdd8104ebc9b4c6c49",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/event-behavior": "^1.0.0",
+                "spryker/kernel": "^3.21.0",
+                "spryker/product-measurement-unit": "^1.0.0",
+                "spryker/storage": "^3.0.0",
+                "spryker/synchronization": "^0.2.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/event": "*",
+                "spryker/propel-orm": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/event": "If you want to use Event plugins: ^2.1.0",
+                "spryker/propel-orm": "If you want to use transaction functionality: ^1.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductMeasurementUnitStorage module",
+            "time": "2018-06-01T15:15:53+00:00"
         },
         {
             "name": "spryker/product-new",
@@ -10706,6 +10848,103 @@
             ],
             "description": "ProductOptionCartConnector module",
             "time": "2017-11-17T08:57:26+00:00"
+        },
+        {
+            "name": "spryker/product-quantity",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/product-quantity.git",
+                "reference": "3db89ab53b5a4fc2a2eaa64e03ac37015641c193"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/product-quantity/zipball/3db89ab53b5a4fc2a2eaa64e03ac37015641c193",
+                "reference": "3db89ab53b5a4fc2a2eaa64e03ac37015641c193",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/cart-extension": "^1.1.0",
+                "spryker/kernel": "^3.17.0",
+                "spryker/product": "^6.0.0"
+            },
+            "require-dev": {
+                "spryker/cart": "*",
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/cart": "If you want to use cart pre check plugins: ^4.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/",
+                    "SprykerTest\\Shared\\ProductQuantity\\Helper\\": "tests/SprykerTest/Shared/ProductQuantity/_support/Helper/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductQuantity module",
+            "time": "2018-06-01T09:16:36+00:00"
+        },
+        {
+            "name": "spryker/product-quantity-storage",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/product-quantity-storage.git",
+                "reference": "5b6c13aed027813066c59abb0aaa1c594a597d52"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/product-quantity-storage/zipball/5b6c13aed027813066c59abb0aaa1c594a597d52",
+                "reference": "5b6c13aed027813066c59abb0aaa1c594a597d52",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/event-behavior": "^1.0.0",
+                "spryker/kernel": "^3.21.0",
+                "spryker/product-quantity": "^1.0.0",
+                "spryker/storage": "^3.0.0",
+                "spryker/synchronization": "^0.2.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/event": "*",
+                "spryker/propel-orm": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/event": "If you want to use Event plugins: ^2.1.0",
+                "spryker/propel-orm": "If you want to use transaction functionality: ^1.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductQuantityStorage module",
+            "time": "2018-06-01T13:58:17+00:00"
         },
         {
             "name": "spryker/product-relation",
@@ -11213,7 +11452,7 @@
             },
             "require": {
                 "php": ">=7.1",
-                "spryker/event-behavior": "^0.1.2",
+                "spryker/event-behavior": "^1.0.0",
                 "spryker/kernel": "^3.16.0",
                 "spryker/product-image": "^3.5.0",
                 "spryker/product-set": "^1.3.0",
@@ -11265,7 +11504,7 @@
             },
             "require": {
                 "php": ">=7.1",
-                "spryker/event-behavior": "^0.1.2",
+                "spryker/event-behavior": "^1.0.0",
                 "spryker/kernel": "^3.16.0",
                 "spryker/locale": "^3.1.0",
                 "spryker/product": "^5.5.0 || ^6.0.0",
@@ -13331,7 +13570,7 @@
             },
             "require": {
                 "php": ">=7.1",
-                "spryker/event-behavior": "^0.1.2",
+                "spryker/event-behavior": "^1.0.0",
                 "spryker/kernel": "^3.16.0",
                 "spryker/locale": "^3.0.0",
                 "spryker/propel-orm": "^1.5.0",
@@ -13528,6 +13767,46 @@
             ],
             "description": "UtilEncoding module",
             "time": "2017-10-24T13:32:31+00:00"
+        },
+        {
+            "name": "spryker/util-measurement-unit-conversion",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/util-measurement-unit-conversion.git",
+                "reference": "1ae26cf8e629d25157e273097941bde438a24ddc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/util-measurement-unit-conversion/zipball/1ae26cf8e629d25157e273097941bde438a24ddc",
+                "reference": "1ae26cf8e629d25157e273097941bde438a24ddc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.3.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "UtilMeasurementUnitConversion module",
+            "time": "2018-05-08T12:16:40+00:00"
         },
         {
             "name": "spryker/util-network",
