@@ -70,6 +70,11 @@ use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigS
 use Spryker\Yves\Url\Plugin\LanguageSwitcherServiceProvider;
 use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestHeaderServiceProvider;
 use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestLogServiceProvider;
+use SprykerShop\Yves\ShopApplication\Plugin\Provider\ShopApplicationServiceProvider;
+use SprykerShop\Yves\ShopApplication\Plugin\Provider\ShopControllerEventServiceProvider;
+use SprykerShop\Yves\ShopApplication\Plugin\Provider\ShopTwigServiceProvider;
+use SprykerShop\Yves\ShopApplication\Plugin\Provider\WidgetServiceProvider;
+use SprykerShop\Yves\ShopUi\Plugin\Provider\ShopUiTwigServiceProvider;
 
 class YvesBootstrap
 {
@@ -117,6 +122,11 @@ class YvesBootstrap
         $this->application->register(new ZedRequestLogServiceProvider());
 
         $this->application->register(new TwigServiceProvider());
+        $this->application->register(new ShopApplicationServiceProvider());
+        $this->application->register(new ShopControllerEventServiceProvider());
+        $this->application->register(new ShopTwigServiceProvider());
+        $this->application->register(new WidgetServiceProvider());
+        $this->application->register(new ShopUiTwigServiceProvider());
         $this->application->register(new SprykerTwigServiceProvider());
         $this->application->register(new ApplicationServiceProvider());
         $this->application->register(new SessionServiceProvider());

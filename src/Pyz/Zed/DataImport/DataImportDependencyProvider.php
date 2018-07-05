@@ -8,8 +8,14 @@
 namespace Pyz\Zed\DataImport;
 
 use Spryker\Shared\Kernel\Store;
+use Spryker\Zed\DataImport\Communication\Plugin\DataImportEventBehaviorPlugin;
+use Spryker\Zed\DataImport\Communication\Plugin\DataImportPublisherPlugin;
 use Spryker\Zed\DataImport\DataImportDependencyProvider as SprykerDataImportDependencyProvider;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\ProductMeasurementUnitDataImport\Communication\Plugin\ProductMeasurementBaseUnitDataImportPlugin;
+use Spryker\Zed\ProductMeasurementUnitDataImport\Communication\Plugin\ProductMeasurementSalesUnitDataImportPlugin;
+use Spryker\Zed\ProductMeasurementUnitDataImport\Communication\Plugin\ProductMeasurementSalesUnitStoreDataImportPlugin;
+use Spryker\Zed\ProductMeasurementUnitDataImport\Communication\Plugin\ProductMeasurementUnitDataImportPlugin;
 
 class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
 {
@@ -109,5 +115,36 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
         $container[static::STORE] = function (Container $container) {
             return Store::getInstance();
         };
+    }
+
+    /**
+     * @return array
+     */
+    protected function getDataImportBeforeImportHookPlugins(): array
+    {
+        return [
+            new DataImportEventBehaviorPlugin(),
+        ];
+    }
+
+    protected function getDataImporterPlugins(): array
+    {
+        return [
+            new ProductMeasurementUnitDataImportPlugin(),
+            new ProductMeasurementBaseUnitDataImportPlugin(),
+            new ProductMeasurementSalesUnitDataImportPlugin(),
+            new ProductMeasurementSalesUnitStoreDataImportPlugin(),
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    protected function getDataImportAfterImportHookPlugins(): array
+    {
+        return [
+            new DataImportEventBehaviorPlugin(),
+            new DataImportPublisherPlugin(),
+        ];
     }
 }

@@ -8,6 +8,8 @@
 namespace Pyz\Zed\Event;
 
 use Spryker\Zed\Event\EventDependencyProvider as SprykerEventDependencyProvider;
+use Spryker\Zed\ProductMeasurementUnitStorage\Communication\Plugin\Event\Subscriber\ProductMeasurementUnitStorageEventSubscriber;
+use Spryker\Zed\ProductQuantityStorage\Communication\Plugin\Event\Subscriber\ProductQuantityStorageEventSubscriber;
 
 class EventDependencyProvider extends SprykerEventDependencyProvider
 {
@@ -25,6 +27,8 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
     public function getEventSubscriberCollection()
     {
         $eventSubscriberCollection = parent::getEventSubscriberCollection();
+        $eventSubscriberCollection->add(new ProductMeasurementUnitStorageEventSubscriber());
+        $eventSubscriberCollection->add(new ProductQuantityStorageEventSubscriber());
 
         return $eventSubscriberCollection;
     }
