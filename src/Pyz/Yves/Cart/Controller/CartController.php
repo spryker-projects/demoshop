@@ -53,14 +53,20 @@ class CartController extends AbstractController
                 $request
             );
 
-        return $this->viewResponse([
+        $cartData = [
             'cart' => $quoteTransfer,
             'cartItems' => $cartItems,
             'attributes' => $itemAttributesBySku,
             'voucherForm' => $voucherForm->createView(),
             'stepBreadcrumbs' => $stepBreadcrumbsTransfer,
             'promotionStorageProducts' => $promotionStorageProducts,
-        ]);
+        ];
+
+        return $this->view(
+            $cartData,
+            $this->getFactory()->getCartWidgetPlugins(),
+            '@Cart/cart/index.twig'
+        );
     }
 
     /**

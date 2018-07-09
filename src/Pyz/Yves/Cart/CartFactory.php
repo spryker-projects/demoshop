@@ -17,6 +17,7 @@ use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
+use SprykerShop\Yves\ProductMeasurementUnitWidget\Plugin\CartPage\QuantitySalesUnitWidgetPlugin;
 
 class CartFactory extends AbstractFactory
 {
@@ -47,6 +48,18 @@ class CartFactory extends AbstractFactory
             $this->getFlashMessenger(),
             $this->getCodeHandlerPlugins()
         );
+    }
+
+    /**
+     * Returns a list of widget plugin class names that implement \Spryker\Yves\Kernel\Dependency\Plugin\WidgetPluginInterface.
+     *
+     * @return string[]
+     */
+    public function getCartWidgetPlugins(): array
+    {
+        return [
+            QuantitySalesUnitWidgetPlugin::class
+        ];
     }
 
     /**

@@ -5,7 +5,13 @@
         {{ parent() }}
     </div>
 {% endblock %}
-
+{% set product = _view.product %}
+{% set productCategories = _view.productCategories %}
+{% set category = _view.category %}
+{% set page_keywords = _view.page_keywords %}
+{% set page_description = _view.page_description %}
+{% set productOptionGroups = _view.productOptionGroups %}
+{% set productUrl = _view.productUrl %}
 {% block page_title %}
     {% if product.metaTitle %}
         {{ product.metaTitle }}
@@ -13,7 +19,13 @@
         {{ product.name }}
     {% endif %}
 {% endblock %}
-
+{% set options = [] %}
+{% for index in 1..10 %}
+    {% set options = options | merge([{
+        label: index,
+        value: index
+    }]) %}
+{% endfor %}
 {% block breadcrumbItems %}
     <li><a href="/">{{ 'global.home' | trans }}</a></li>
     {% if productCategories|length %}
@@ -105,28 +117,28 @@
 
             <form method="POST" action="{{ path('cart/add', {'sku': product.sku }) }}">
                 {% include '@Product/product/partials/product-options.twig' %}
+                {{ widget('ProductMeasurementUnitWidgetPlugin', _view.productView, product.available, options) }}
+                {#<div class="callout">#}
+                    {#<div class="row align-bottom">#}
+                        {#<div class="small-4 xlarge-3 columns __no-margin-bottom">#}
+                            {#<label>#}
+                                {#{{ 'cart.item_quantity' | trans }}#}
+                                {#<select name="quantity" class="__no-margin-bottom">#}
+                                    {#{% for index in 1..10 %}#}
+                                        {#<option value="{{ index }}">{{ index }}</option>#}
+                                    {#{% endfor %}#}
 
-                <div class="callout">
-                    <div class="row align-bottom">
-                        <div class="small-4 xlarge-3 columns __no-margin-bottom">
-                            <label>
-                                {{ 'cart.item_quantity' | trans }}
-                                <select name="quantity" class="__no-margin-bottom">
-                                    {% for index in 1..10 %}
-                                        <option value="{{ index }}">{{ index }}</option>
-                                    {% endfor %}
+                                {#</select>#}
+                            {#</label>#}
+                        {#</div>#}
 
-                                </select>
-                            </label>
-                        </div>
-
-                        <div class="small-8 xlarge-9 columns">
-                            <button type="submit" class="button expanded success __no-margin-bottom js-add-to-cart-button" {{ (not product.isVariant or not product.available or product.price is null) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
-                                <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                        {#<div class="small-8 xlarge-9 columns">#}
+                            {#<button type="submit" class="button expanded success __no-margin-bottom js-add-to-cart-button" {{ (not product.isVariant or not product.available or product.price is null) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">#}
+                                {#<i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}#}
+                            {#</button>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
             </form>
 
             {% if not product.available %}

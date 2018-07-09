@@ -4,6 +4,13 @@
     <h3>{{ 'cart.cart'|trans }}</h3>
 {% endblock %}
 
+{% set cart = _view.cart %}
+{% set cartItems = _view.cartItems %}
+{% set attributes = _view.attributes %}
+{% set voucherForm = _view.voucherForm %}
+{% set stepBreadcrumbs = _view.stepBreadcrumbs %}
+{% set promotionStorageProducts = _view.promotionStorageProducts %}
+
 {% block breadcrumbItems %}
     <li><a href="/">{{ 'global.home' | trans }}</a></li>
     <li>{{ 'cart.cart'|trans }}</li>

@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Product\Controller;
 
+use Generated\Shared\Transfer\ProductViewTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Pyz\Yves\Application\Controller\AbstractController;
 use Spryker\Shared\Storage\StorageConstants;
@@ -33,7 +34,11 @@ class ProductController extends AbstractController
             ->getProductOptionClient()
             ->getProductOptions($storageProductTransfer->getIdProductAbstract(), $this->getLocale());
 
+        $productViewTransfer = new ProductViewTransfer();
+        $productViewTransfer->fromArray($storageProductTransfer->toArray(), true);
+
         $productData = [
+            'productView' => $productViewTransfer,
             'product' => $storageProductTransfer,
             'productCategories' => $categories,
             'category' => count($categories) ? end($categories) : null,
@@ -43,7 +48,11 @@ class ProductController extends AbstractController
             'productUrl' => $this->getProductUrl($storageProductTransfer),
         ];
 
-        return $productData;
+        return $this->view(
+            $productData,
+            $this->getFactory()->getProductDetailPageWidgetPlugins(),
+            '@Product/product/detail.twig'
+        );
     }
 
     /**

@@ -15,6 +15,7 @@ use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Pyz\Yves\Product\Plugin\StorageProductMapperPlugin;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
 use Spryker\Yves\Kernel\AbstractFactory;
+use SprykerShop\Yves\ProductMeasurementUnitWidget\Plugin\ProductDetailPage\ProductMeasurementUnitWidgetPlugin;
 
 /**
  * @method \Spryker\Client\Product\ProductClientInterface getClient()
@@ -110,5 +111,17 @@ class ProductFactory extends AbstractFactory
     public function createStorageProductMapperPlugin()
     {
         return new StorageProductMapperPlugin();
+    }
+
+    /**
+     * Returns a list of widget plugin class names that implement \Spryker\Yves\Kernel\Dependency\Plugin\WidgetPluginInterface.
+     *
+     * @return string[]
+     */
+    public function getProductDetailPageWidgetPlugins(): array
+    {
+        return [
+            ProductMeasurementUnitWidgetPlugin::class
+        ];
     }
 }
