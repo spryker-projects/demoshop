@@ -121,7 +121,7 @@ class ProductFactory extends AbstractFactory
     public function getProductDetailPageWidgetPlugins(): array
     {
         return [
-            ProductMeasurementUnitWidgetPlugin::class
+            ProductMeasurementUnitWidgetPlugin::class,
         ];
     }
 }

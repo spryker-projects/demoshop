@@ -58,7 +58,7 @@ class CartFactory extends AbstractFactory
     public function getCartWidgetPlugins(): array
     {
         return [
-            QuantitySalesUnitWidgetPlugin::class
+            QuantitySalesUnitWidgetPlugin::class,
         ];
     }
 
